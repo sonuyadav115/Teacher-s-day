@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Teacher's Day</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            display: none;
+        }
+
+        .container.active {
+            display: block;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #333;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- First Section -->
+    <div id="page1" class="container active">
+        <h1 class="animate-title">Happy Teacher's Day!</h1>
+        <button onclick="showPage('page2')">See the Message</button>
+    </div>
+
+    <!-- Second Section -->
+    <div id="page2" class="container">
+        <h1 class="animate-title">"A good teacher can inspire hope, ignite the imagination, and instill a love of learning."</h1>
+        <button onclick="showPage('page1')">Go Back</button>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all containers
+            document.querySelectorAll('.container').forEach(container => {
+                container.classList.remove('active');
+            });
+            // Show the selected container
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
